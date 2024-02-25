@@ -1,0 +1,12 @@
+{
+  "hash": "eb23fa66b5b9834530caaffe223d82ce",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Post With Code\nauthor: Akmal Fadhlurrahman\ndate: '2024-02-25'\ncategories:\n  - news\n  - code\n  - analysis\nimage: image.jpg\n---\n\nThis is a post with executable code.\n\n::: {#7b637f53 .cell execution_count=1}\n``` {.python .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-display execution_count=1}\n```\n2\n```\n:::\n:::\n\n\nAnt he code is like this:\n\n``` python\nimport pandas as pd\nimport numpy as np\n```\n\nAnd the integral notion $d_2$ and the government is\n\n$$\nd_2 =\\int_0^\\infty e^{-y^2}\\, dy\n$$\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

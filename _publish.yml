@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 4844bc48-a136-4f23-8195-f78d950df52f
+      url: 'https://akmalf.netlify.app'

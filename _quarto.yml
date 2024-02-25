@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "Akmal Fadhlurrahman"
+  google-analytics: "G-8D75QB010W"
+  page-navigation: true
+  navbar:
+    left:
+      - text: About
+        file: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/
+      - icon: linkedin
+        href: https://www.linkedin.com/in/akmalf/
+format:
+  html:
+    theme: pulse
+    css: styles.css
+
+editor: visual
+
+execute:
+  freeze: auto
+

@@ -1,0 +1,15 @@
+{
+  "hash": "6747ca8e5e953eff4f7e0aa878ceb137",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"This is my first post for this website. Let me see if this works.\"\nauthor: \"Akmal Fadhlurrahman\"\ndate: \"2024-02-22\"\ncategories: [technology]\n\ntoc: true\npage-layout: full\ntitle-block-banner-color : white\n---\n\n\nThis is my first post for this website. Let me see if this works.\n\n## Technology\n\nThis website is build with [Quarto](https://quarto.org/) through [RStudio Desktop](https://posit.co/download/rstudio-desktop/), with the static page stored in [Github](https://github.com/akmalf) and served through Netlify.\n\n(Hey the link works!)\n\nJust like any other blogging platform, it can insert pictures:\n\n![](thumbnail.jpg)\n\n## Scientific Publishing\n\nBut what makes Quarto special is that it is a *scientific and technical publishing system*; so naturally it allow code highlighting:\n\n``` python\nfor i in range(3):\n  print(i)\n```\n\n(even if the syntax highlighter is not available for all language of interest, for example, SAS syntax support is missing):\n\n``` sass\nproc sql;\ncreate table something as\nselect * from nothing;\nquit;\n```\n\nBeyond just highlighting, Quarto can *run* Python and R codes and store the result with ease with `reticulate` package, like so:\n\n\n::: {.cell}\n\n```{.python .cell-code}\nimport pandas as pd\nimport numpy as np\n\nfor i in range(3):\n  print(i+1)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n1\n2\n3\n```\n\n\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nfor (x in 1:3) {\n  print(x)\n}\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 1\n[1] 2\n[1] 3\n```\n\n\n:::\n:::\n\n\n## Math\n\nIt can also support $math$, like so inline: $x = \\dfrac{-b \\pm \\sqrt{b^2-4ac}}{2a}$ or the display one: $$\n\\int_0^\\infty e^{-x^2}\\: dx = \\dfrac{\\sqrt{\\pi}}{2}\n$$\n\nAnd as you can see in the [About](../../about.html) page (why this one is very hard?), we can also cross-linking and do tables.\n\nEmployer\n\n|                    | Position       | From - To          |\n|--------------------|----------------|--------------------|\n| Bank UOB Indonesia | Data Scientist | Nov 2023 - present |\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
