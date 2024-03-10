@@ -1,0 +1,24 @@
+---
+title: "Penjelasan Matematika di Balik Kesuksesan Algoritma XGBoost untuk Klasifikasi"
+author: "Akmal Fadhlurrahman"
+date: "2024-03-02"
+categories: [data-science]
+
+toc: true
+page-layout: full
+title-block-banner-color : white
+---
+
+## Rumusan Masalah
+
+Ketika $f(x)\geq g(x) \geq h(x)$ $h$
+
+$$
+f(x)=\sum_{j=1}^T w_j \mathbf{I}(\mathbf{x} \in R_j)
+$$
+
+## Contoh dengan Data Telco
+
+$$
+\mathcal{I}=\int_0^\frac{\pi}{2} \arccos\left(\dfrac{\cos x}{1+2\cos x}\right)\, dx
+$$
