@@ -269,13 +269,14 @@ window.Quarto = {
 
 
 
+<p><img src="images/clipboard-2076072366.png" class="img-fluid"></p>
 <section id="belajar-karena-voucher-gratisan" class="level1">
 <h1>Belajar karena <em>Voucher</em> Gratisan</h1>
 <p>Kenapa tiba-tiba muncul ide untuk buat blogpost tentang TensorFlow?</p>
 <p>Jawabannya: sesungguhnya saya mendapatkan <em>voucher</em> <a href="#0">sertifikasi TensorFlow Developer</a> gratis dari <a href="#0">Bangkit Academy</a> (bernilai US$100) karena pernah menjadi kontributor di sana untuk beberapa sesi.</p>
-<p><img src="images/clipboard-4177578384.png" class="img-fluid"></p>
+<p><img src="images/clipboard-4177578384.png" class="img-fluid" width="525"></p>
 <p>Dan oleh karena itu saya perlu mempelajari seluk-beluk pemrograman TensorFlow sebelum <em>voucher</em> tersebut kadaluarsa pada akhir Mei 2024 (tinggal 2 bulan lagi ketika blog ini ditulis…).</p>
-<p><img src="images/clipboard-89538439.png" class="img-fluid"></p>
+<p><img src="images/clipboard-89538439.png" class="img-fluid" width="342"></p>
 <p>Dan sejujurnya selama karir saya sebagai data scientist, saya belum mendalami teknik-teknik <em>deep learning</em> dengan seksama, apalagi dengan menggunakan <em>library</em> TensorFlow. (Saya belajar dengan <em>library</em> scikit-learn dan yang mirip-mirip dengan scikit-learn).</p>
 <p>Jadi saya kemudian membeli tiga <em>course</em> dariUdemy: <a href="https://www.udemy.com/course/tensorflow-developer-certificate-machine-learning-zero-to-mastery">TensorFlow Developer Certificate Bootcamp</a>, <a href="https://www.udemy.com/course/deep-learning-tensorflow-2">TensorFlow 2.0: Deep Learning and Artificial Intelligence</a>, dan <a href="https://www.udemy.com/course/deeplearning_x">A Deep Understanding of Deep Learning</a> lalu mulai belajar dari dasar-dasarnya. (Semoga dapat reimburse dari kantor, amin!)</p>
 <p>Tapi kemudian course-course itu gak ditonton dan/atau diterapkan selama 2 bulan :) Padahal waktu belajarnya cuman 4 bulan :))</p>
@@ -301,7 +302,7 @@ window.Quarto = {
 <p>Dan untuk MacOS dengan prosesor Apple Silicon, <a href="https://developer.apple.com/metal/tensorflow-plugin/">direkomendasikan</a> untuk menginstall plugin <code>tensorflow-metal</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pip install tensorflow<span class="op">-</span>metal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Untuk mengecek versi TF yang terinstall, gunakan <code>__version__</code>:</p>
-<div id="74d94529" class="cell" data-execution_count="1">
+<div id="323a953a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tf.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -313,9 +314,9 @@ window.Quarto = {
 <h1>TensorFlow dan GPU/TPU</h1>
 <p>Mengapa untuk MacOS dengan prosesor Apple Silicon kita perlu menginstall plugin <code>tensorflow-metal</code>? Karena keberadaan <em>hardware</em> GPU pada Apple Silicon dapat digunakan untuk mempercepat proses <em>training</em> model TensorFlow. Hal yang sama berlaku ketika menggunakan TensorFlow dengan Google Colab; penggunaan GPU/TPU akan mempercepat waktu <em>training</em> model-model TF.</p>
 <p>Untuk melihat <em>hardware</em> apa yang dapat digunakan oleh TF:</p>
-<div id="da5f1f3e" class="cell" data-execution_count="2">
+<div id="962a31b9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tf.config.list_physical_devices()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'),
  PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</code></pre>
 </div>
@@ -336,7 +337,7 @@ window.Quarto = {
 <section id="membuat-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="membuat-tensor">Membuat Tensor</h2>
 <p>Untuk membuat tensor, kita bisa menggunakan <code>tf.constant()</code></p>
-<div id="48955753" class="cell" data-execution_count="3">
+<div id="0f5aacd7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> tf.constant(<span class="dv">1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> tf.constant([<span class="dv">1</span>, <span class="dv">2</span>])</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> tf.constant([</span>
@@ -354,7 +355,7 @@ window.Quarto = {
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  ]</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="bceb13b1" class="cell" data-execution_count="4">
+<div id="88faf301" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a) <span class="co"># Skalar</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b) <span class="co"># Vektor</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c) <span class="co"># Matriks</span></span>
@@ -374,10 +375,10 @@ tf.Tensor(
 </div>
 </div>
 <p>Kadangkala kita perlu membuat tensor dengan isi nol semua, kita bisa menggunakan <code>tf.zeros</code>:</p>
-<div id="502f74c1" class="cell" data-execution_count="5">
+<div id="cec6577c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rank4 <span class="op">=</span> tf.zeros(shape<span class="op">=</span>[<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>rank4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>&lt;tf.Tensor: shape=(2, 3, 4, 5), dtype=float32, numpy=
 array([[[[0., 0., 0., 0., 0.],
          [0., 0., 0., 0., 0.],
@@ -412,7 +413,7 @@ array([[[[0., 0., 0., 0., 0.],
 </div>
 </div>
 <p>atau untuk membangkitkan tensor acak, gunakan <code>tf.random.Generator</code></p>
-<div id="9f1e40e2" class="cell" data-execution_count="6">
+<div id="d6ffc6f6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>random1 <span class="op">=</span> tf.random.Generator.from_seed(<span class="dv">39209</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>random1 <span class="op">=</span> random1.normal(shape<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -427,29 +428,29 @@ array([[[[0., 0., 0., 0., 0.],
 <section id="membuat-variable" class="level2">
 <h2 class="anchored" data-anchor-id="membuat-variable">Membuat Variable</h2>
 <p>Selain <code>Tensor</code>, terdapat jenis data lain yang ada di TF, yakni <code>Variable</code>. Sesuai namanya, <code>Variable</code> adalah Tensor yang nilainya dapat diubah-ubah dengan menggunakan metode <code>.assign()</code></p>
-<div id="938d7b12" class="cell" data-execution_count="7">
+<div id="efd10814" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>changeable_tensor <span class="op">=</span> tf.Variable([<span class="dv">10</span>, <span class="dv">7</span>])</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(changeable_tensor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;tf.Variable 'Variable:0' shape=(2,) dtype=int32, numpy=array([10,  7], dtype=int32)&gt;</code></pre>
 </div>
 </div>
-<div id="c99e3266" class="cell" data-execution_count="8">
+<div id="8f63facd" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>changeable_tensor.assign([<span class="dv">3</span>, <span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>&lt;tf.Variable 'UnreadVariable' shape=(2,) dtype=int32, numpy=array([3, 5], dtype=int32)&gt;</code></pre>
 </div>
 </div>
 <p><code>Variable</code> digunakan oleh TensorFlow salah satunya untuk melakukan diferensiasi (menghitung <span class="math inline">\(\dfrac{\partial f}{\partial w_i}\)</span>) dan menyimpan nilai bobot (<span class="math inline">\(w_i\)</span>) ketika <em>training</em> model.</p>
 <p>Namun apabila kita memiliki Variable yang tidak perlu di-<em>train</em> (misal: step counter), maka kita bisa menyetel variable sebagai <em>non-trainable</em>, contoh:</p>
-<div id="45a72d88" class="cell" data-execution_count="9">
+<div id="7c091ae3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>step_counter <span class="op">=</span> tf.Variable(<span class="dv">1</span>, trainable<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="melihat-informasi-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="melihat-informasi-tensor">Melihat Informasi Tensor</h2>
 <p>Seperti array Numpy, kita bisa menarik beberapa informasi seputar tensor:</p>
-<div id="dbd90651" class="cell" data-execution_count="10">
+<div id="4356017e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rank4.dtype) <span class="co"># Tipe data dtype di tensor rank4</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rank4.shape) <span class="co"># Bentuk data tensor</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rank4.ndim)  <span class="co"># Jumlah dimensi tensor (karena datanya berbentuk 2x3x4x5 --&gt; 4 dimensi)</span></span>
@@ -465,10 +466,10 @@ array([[[[0., 0., 0., 0., 0.],
 <section id="manipulasi-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="manipulasi-tensor">Manipulasi Tensor</h2>
 <p>Kita juga menggunakan <em>indexing</em> untuk melihat sebagian dari tensor, misal:</p>
-<div id="a45d0cad" class="cell" data-execution_count="11">
+<div id="2c951a11" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the first 2 elements of each dimension</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>rank4[:<span class="dv">1</span>, :<span class="dv">3</span>, :<span class="dv">2</span>, :<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>&lt;tf.Tensor: shape=(1, 3, 2, 2), dtype=float32, numpy=
 array([[[[0., 0.],
          [0., 0.]],
@@ -481,7 +482,7 @@ array([[[[0., 0.],
 </div>
 </div>
 <p>Dan apabila diperlukan, kita bisa menambahkan dimensi baru dari tensor <em>existing</em> dengan menggunakan <code>tf.newaxis</code>:</p>
-<div id="fcae7bf5" class="cell" data-execution_count="12">
+<div id="4b40c60c" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crate a r2x2 tensor (2 dimensions)</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>rank2 <span class="op">=</span> tf.constant([[<span class="dv">10</span>, <span class="dv">3</span>],</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                     [<span class="dv">2</span>, <span class="dv">5</span>]])</span>
@@ -489,7 +490,7 @@ array([[[[0., 0.],
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add in extra dimension to our rank 2 tensor toi make 2x2x1 tensor</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>rank3_exp <span class="op">=</span> rank2[..., tf.newaxis]</span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>rank3_exp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>&lt;tf.Tensor: shape=(2, 2, 1), dtype=int32, numpy=
 array([[[10],
         [ 3]],
@@ -499,12 +500,12 @@ array([[[10],
 </div>
 </div>
 <p>Apabila diperlukan, kita juga bisa melakukan kebalikannya: Menghilangkan semua <em>single dimensions</em> dengan fungsi <code>tf.squeeze():</code></p>
-<div id="f33c60f1" class="cell" data-execution_count="13">
+<div id="50b91a5d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tensor to get started</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>tf.random.set_seed(<span class="dv">42</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> tf.constant(tf.random.uniform(shape<span class="op">=</span>[<span class="dv">50</span>]), shape<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">25</span>))</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>G</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell-output cell-output-display" data-execution_count="53">
 <pre><code>&lt;tf.Tensor: shape=(1, 1, 1, 2, 25), dtype=float32, numpy=
 array([[[[[0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
            0.68467236, 0.74011743, 0.8724445 , 0.22632635, 0.22319686,
@@ -519,10 +520,10 @@ array([[[[[0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
       dtype=float32)&gt;</code></pre>
 </div>
 </div>
-<div id="49f7d5c1" class="cell" data-execution_count="14">
+<div id="047fd5b1" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>G_squeezed <span class="op">=</span> tf.squeeze(G)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>G_squeezed, G_squeezed.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="54">
 <pre><code>(&lt;tf.Tensor: shape=(2, 25), dtype=float32, numpy=
  array([[0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
          0.68467236, 0.74011743, 0.8724445 , 0.22632635, 0.22319686,
@@ -542,11 +543,11 @@ array([[[[[0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
 <section id="mengubah-data-type-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="mengubah-data-type-tensor">Mengubah <em>data type</em> tensor</h2>
 <p>Sejauh ini, kita hanya bekerja dengan tensor ber-<code>dtype</code> <code>int32</code>. Mari kita membuat sebuah tensor bertipe <code>float</code>:</p>
-<div id="7cb67044" class="cell" data-execution_count="15">
+<div id="790f1eea" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> tf.constant([[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>]], dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> tf.constant([[<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>]], dtype<span class="op">=</span><span class="bu">float</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>t1, t2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>(&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
  array([[1., 2.],
         [3., 4.]], dtype=float32)&gt;,
@@ -556,35 +557,35 @@ array([[[[[0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
 </div>
 </div>
 <p>Untuk beberapa kasus, kita perlu mengubah tensor yang sudah ada menjadi data type yang lain. Untuk itu, kita bisa menggunakan fungsi <code>tf.cast()</code></p>
-<div id="9d4446dc" class="cell" data-execution_count="16">
+<div id="4f3b3468" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a random tensor of values between -100 and 100 of size 50</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> tf.constant(np.random.randint(<span class="op">-</span><span class="dv">100</span>,<span class="dv">100</span>,size <span class="op">=</span> <span class="dv">50</span>))</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>E</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>&lt;tf.Tensor: shape=(50,), dtype=int64, numpy=
-array([-44, -60, -45,  47,  20, -52, -25, -28, -10,  98, -93, -90,  69,
-        52,  -5, -87,  17,  37,  95, -54, -63,  25,  89,   3,  39,  63,
-       -78,  14,  37,  33,  85, -96,  77,  -8,  31, -36,  34, -25,  -2,
-       -73, -60,  98,  52,  87,   5, -63,  26,  95, -47,  85])&gt;</code></pre>
+array([ 17,  10, -69, -39,  59, -76, -63,  65,  62,  12, -78, -80, -79,
+        14,  81,  54, -78,  70, -22,  13, -61, -59, -66, -89, -21, -66,
+       -98, -44,  64,  96,  96, -12, -28, -19, -56, -99, -77,  86, -94,
+        23,  90,  -2,  61, -96,  61, -18, -74, -17,  93,  42])&gt;</code></pre>
 </div>
 </div>
-<div id="97926b5d" class="cell" data-execution_count="17">
+<div id="8a38e20b" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>tf.cast(E, dtype<span class="op">=</span>tf.float32)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="57">
 <pre><code>&lt;tf.Tensor: shape=(50,), dtype=float32, numpy=
-array([-44., -60., -45.,  47.,  20., -52., -25., -28., -10.,  98., -93.,
-       -90.,  69.,  52.,  -5., -87.,  17.,  37.,  95., -54., -63.,  25.,
-        89.,   3.,  39.,  63., -78.,  14.,  37.,  33.,  85., -96.,  77.,
-        -8.,  31., -36.,  34., -25.,  -2., -73., -60.,  98.,  52.,  87.,
-         5., -63.,  26.,  95., -47.,  85.], dtype=float32)&gt;</code></pre>
+array([ 17.,  10., -69., -39.,  59., -76., -63.,  65.,  62.,  12., -78.,
+       -80., -79.,  14.,  81.,  54., -78.,  70., -22.,  13., -61., -59.,
+       -66., -89., -21., -66., -98., -44.,  64.,  96.,  96., -12., -28.,
+       -19., -56., -99., -77.,  86., -94.,  23.,  90.,  -2.,  61., -96.,
+        61., -18., -74., -17.,  93.,  42.], dtype=float32)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="operasi-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="operasi-tensor">Operasi Tensor</h2>
 <p>Untuk menjumlahkan, mengalikan dengan skalar, dan perkalian matriks, operator Python standar <code>+</code>, <code>*</code>, <code>@</code> tetap bisa digunakan:</p>
-<div id="0e4d39f7" class="cell" data-execution_count="18">
+<div id="7f44065d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t1 <span class="op">+</span> t2, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t1 <span class="op">*</span> <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t1 <span class="op">@</span> t2, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -604,7 +605,7 @@ tf.Tensor(
 </div>
 </div>
 <p>Meskipun demikian, <em>best practice</em> untuk melakukan operasi-operasi tersebut adalah dengan menggunakan fungsi-fungsi <em>native</em> Tensorflow, seperti <code>tf.add</code>, <code>tf.multiply</code>, dan <code>tf.matmul:</code></p>
-<div id="bb77c568" class="cell" data-execution_count="19">
+<div id="bb55f1a8" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tf.add(t1, t2), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tf.multiply(t1, <span class="dv">1</span><span class="op">/</span><span class="dv">3</span>), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tf.matmul(t1, t2), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -627,7 +628,7 @@ tf.Tensor(
 <section id="agregasi-tensor" class="level2">
 <h2 class="anchored" data-anchor-id="agregasi-tensor">Agregasi Tensor</h2>
 <p>Untuk mencari nilai min/max/mean/sum/variance dari suatu tensor, kita bisa menggunakan fungsi-fungsi reduksi berikut:</p>
-<div id="dd34fd9b" class="cell" data-execution_count="20">
+<div id="f8bf253a" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a random tensor of values between -100 and 100 of size 50</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> tf.constant(np.random.randint(<span class="op">-</span><span class="dv">100</span>,<span class="dv">100</span>,size <span class="op">=</span> <span class="dv">50</span>))</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(E)</span>
@@ -654,17 +655,17 @@ tf.Tensor(
 <span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Positional maximum: "</span>, tf.argmax(E).numpy())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tf.Tensor(
-[-69  81  61 -58  79  -2  23 -53 -17 -15  63 -93 -90  -2  61  58  28  93
-  21  -8  64  42 -26  32  65 -68  59   6 -41  83 -80 -48  13  28 -16 -55
-   7  -7  58  89  39  83  35 -53  75  46 -85  49  83 -29], shape=(50,), dtype=int64)
-Minimum:  -93
-Maximum:  93
-Average:  12
-Total:  609
-Standard deviation:  54.624054
-Variance:  2983.7874
-Positional minimum:  11
-Positional maximum:  17</code></pre>
+[ 53  58 -96  79  55  27  -8   4  11  86 -96  73 -78 -42   5 -10 -53 -81
+ -19  -5 -53 -46  96 -57  23 -61  89 -72  35 -55 -31  -6 -19  73  35  62
+  91  91  49 -54 -28 -48 -96 -78  35 -53   3  45 -82 -48], shape=(50,), dtype=int64)
+Minimum:  -96
+Maximum:  96
+Average:  -3
+Total:  -197
+Standard deviation:  58.411095
+Variance:  3411.8562
+Positional minimum:  2
+Positional maximum:  22</code></pre>
 </div>
 </div>
 </section>

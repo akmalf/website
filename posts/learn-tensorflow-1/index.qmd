@@ -9,17 +9,19 @@ page-layout: full
 title-block-banner-color : white
 ---
 
+![](images/clipboard-2076072366.png)
+
 # Belajar karena *Voucher* Gratisan
 
 Kenapa tiba-tiba muncul ide untuk buat blogpost tentang TensorFlow?
 
 Jawabannya: sesungguhnya saya mendapatkan *voucher* [sertifikasi TensorFlow Developer](#0) gratis dari [Bangkit Academy](#0) (bernilai US\$100) karena pernah menjadi kontributor di sana untuk beberapa sesi.
 
-![](images/clipboard-4177578384.png)
+![](images/clipboard-4177578384.png){width="525"}
 
 Dan oleh karena itu saya perlu mempelajari seluk-beluk pemrograman TensorFlow sebelum *voucher* tersebut kadaluarsa pada akhir Mei 2024 (tinggal 2 bulan lagi ketika blog ini ditulis...).
 
-![](images/clipboard-89538439.png)
+![](images/clipboard-89538439.png){width="342"}
 
 Dan sejujurnya selama karir saya sebagai data scientist, saya belum mendalami teknik-teknik *deep learning* dengan seksama, apalagi dengan menggunakan *library* TensorFlow. (Saya belajar dengan *library* scikit-learn dan yang mirip-mirip dengan scikit-learn).
 
