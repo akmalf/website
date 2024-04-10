@@ -1,0 +1,285 @@
+---
+title: "TensorFlow Developer Certification (1/5): Dasar-Dasar TensorFlow"
+author: "Akmal Fadhlurrahman"
+date: "2024-04-08"
+categories: [data-science, tensorflow-certification]
+
+toc: true
+page-layout: full
+title-block-banner-color : white
+---
+
+# Belajar karena *Voucher* Gratisan
+
+Kenapa tiba-tiba muncul ide untuk buat blogpost tentang TensorFlow?
+
+Jawabannya: sesungguhnya saya mendapatkan *voucher* [sertifikasi TensorFlow Developer](#0) gratis dari [Bangkit Academy](#0) (bernilai US\$100) karena pernah menjadi kontributor di sana untuk beberapa sesi.
+
+![](images/clipboard-4177578384.png)
+
+Dan oleh karena itu saya perlu mempelajari seluk-beluk pemrograman TensorFlow sebelum *voucher* tersebut kadaluarsa pada akhir Mei 2024 (tinggal 2 bulan lagi ketika blog ini ditulis...).
+
+![](images/clipboard-89538439.png)
+
+Dan sejujurnya selama karir saya sebagai data scientist, saya belum mendalami teknik-teknik *deep learning* dengan seksama, apalagi dengan menggunakan *library* TensorFlow. (Saya belajar dengan *library* scikit-learn dan yang mirip-mirip dengan scikit-learn).
+
+Jadi saya kemudian membeli tiga *course* dariUdemy: [TensorFlow Developer Certificate Bootcamp](https://www.udemy.com/course/tensorflow-developer-certificate-machine-learning-zero-to-mastery), [TensorFlow 2.0: Deep Learning and Artificial Intelligence](https://www.udemy.com/course/deep-learning-tensorflow-2), dan [A Deep Understanding of Deep Learning](https://www.udemy.com/course/deeplearning_x) lalu mulai belajar dari dasar-dasarnya. (Semoga dapat reimburse dari kantor, amin!)
+
+Tapi kemudian course-course itu gak ditonton dan/atau diterapkan selama 2 bulan :) Padahal waktu belajarnya cuman 4 bulan :))
+
+Jadi supaya ada *progress*, akhirnya dicobalah untuk *learn in public*: secara periodik nulis "laporan" yang dishare di publik, supaya jadi motivasi belajar.
+
+## Rencana #LearnInPublic
+
+Blog ini akan dipecah menjadi 5 bagian sesuai dengan [silabus ujian Tensorflow Developer](https://www.tensorflow.org/extras/cert/TF_Certificate_Candidate_Handbook.pdf)
+
+-   *TensorFlow developer skills* (**blog ini**)
+
+-   Membuat model *neural network* dengan TensorFlow 2.x
+
+-   Klasifikasi gambar (*image classification*)
+
+-   Pemrosesan bahasa alami (*natural language processing/NLP*)
+
+-   Model runtun waktu, barisan, dan peramalan (*time series, sequences, and predictions*) *–\> ini emang terjemahannya bener ya??*
+
+# Instalasi TensorFlow
+
+Di Python, library TensorFlow (TF) **terbaru** bisa diinstall dari pip:
+
+``` py
+pip install tensorflow
+```
+
+Untuk pengguna MacOS, TensorFlow versi 2.12 **ke bawah** bisa diinstall dengan
+
+``` {.python .py}
+pip install tensorflow-macos
+```
+
+Dan untuk MacOS dengan prosesor Apple Silicon, [direkomendasikan](https://developer.apple.com/metal/tensorflow-plugin/) untuk menginstall plugin `tensorflow-metal`:
+
+``` python
+pip install tensorflow-metal
+```
+
+Untuk mengecek versi TF yang terinstall, gunakan `__version__`:
+
+```{python}
+import tensorflow as tf
+print(tf.__version__)
+```
+
+# TensorFlow dan GPU/TPU
+
+Mengapa untuk MacOS dengan prosesor Apple Silicon kita perlu menginstall plugin `tensorflow-metal`? Karena keberadaan *hardware* GPU pada Apple Silicon dapat digunakan untuk mempercepat proses *training* model TensorFlow. Hal yang sama berlaku ketika menggunakan TensorFlow dengan Google Colab; penggunaan GPU/TPU akan mempercepat waktu *training* model-model TF.
+
+Untuk melihat *hardware* apa yang dapat digunakan oleh TF:
+
+```{python}
+tf.config.list_physical_devices()
+```
+
+Terlihat bahwa di sini kita bisa menggunakan GPU, karena saya membuat website ini di laptop dengan Apple Silicon.
+
+# Pengenalan Tensor
+
+Struktur data yang paling dasar dalam TensorFlow adalah Tensor (d'uh). Mengutip dari [dokumentasi resmi TensorFlow:](https://www.tensorflow.org/api_docs/python/tf)
+
+> *Tensors are multi-dimensional arrays with a uniform type (called a `dtype`). You can see all supported `dtypes` at [`tf.dtypes`](https://www.tensorflow.org/api_docs/python/tf/dtypes).*
+>
+> *If you're familiar with [NumPy](https://numpy.org/devdocs/user/quickstart.html), tensors are (kind of) like `np.arrays`.*
+>
+> *All tensors are immutable like Python numbers and strings: you can never update the contents of a tensor, only create a new one.*
+
+Karena Tensor pada dasarnya adalah array multidimensi, maka Tensor bisa berbentuk skalar (array berdimensi 0), vektor (array dimensi 1), matriks (array dimensi 2), tumpukan matriks (array dimensi 3), atau tumpukan dari tumpukan matriks (array dimensi 4), dan seterusnya
+
+![](images/clipboard-3871733839.png)![](images/clipboard-2123506374.png)![](images/clipboard-1706963052.png)![](images/clipboard-500934595.png)
+
+[**Contoh**]{.underline}: Ketika melakukan *image classification*, gambar atau video bisa diubah menjadi array dimensi 3 yang memisahkan *RGB color channel*-nya (red, green, blue).
+
+## Membuat Tensor
+
+Untuk membuat tensor, kita bisa menggunakan `tf.constant()`
+
+```{python}
+a = tf.constant(1)
+b = tf.constant([1, 2])
+c = tf.constant([
+  [1,2],
+  [3,4]
+])
+d = tf.constant([
+  [
+    [1,2],
+    [3,4]
+  ],
+  [
+    [5,6],
+    [7,8]
+  ]
+])
+```
+
+```{python}
+print(a) # Skalar
+print(b) # Vektor
+print(c) # Matriks
+print(d) # Tumpukan matriks
+```
+
+Kadangkala kita perlu membuat tensor dengan isi nol semua, kita bisa menggunakan `tf.zeros`:
+
+```{python}
+rank4 = tf.zeros(shape=[2,3,4,5])
+rank4
+```
+
+atau untuk membangkitkan tensor acak, gunakan `tf.random.Generator`
+
+```{python}
+random1 = tf.random.Generator.from_seed(39209)
+random1 = random1.normal(shape=(3,2))
+print(random1)
+```
+
+## Membuat Variable
+
+Selain `Tensor`, terdapat jenis data lain yang ada di TF, yakni `Variable`. Sesuai namanya, `Variable` adalah Tensor yang nilainya dapat diubah-ubah dengan menggunakan metode `.assign()`
+
+```{python}
+changeable_tensor = tf.Variable([10, 7])
+print(changeable_tensor)
+```
+
+```{python}
+changeable_tensor.assign([3, 5])
+```
+
+`Variable` digunakan oleh TensorFlow salah satunya untuk melakukan diferensiasi (menghitung $\dfrac{\partial f}{\partial w_i}$) dan menyimpan nilai bobot ($w_i$) ketika *training* model.
+
+Namun apabila kita memiliki Variable yang tidak perlu di-*train* (misal: step counter), maka kita bisa menyetel variable sebagai *non-trainable*, contoh:
+
+```{python}
+step_counter = tf.Variable(1, trainable=False)
+```
+
+## Melihat Informasi Tensor
+
+Seperti array Numpy, kita bisa menarik beberapa informasi seputar tensor:
+
+```{python}
+print(rank4.dtype) # Tipe data dtype di tensor rank4
+print(rank4.shape) # Bentuk data tensor
+print(rank4.ndim)  # Jumlah dimensi tensor (karena datanya berbentuk 2x3x4x5 --> 4 dimensi)
+print(tf.size(rank4).numpy()) # Karena bentuk datanya 2x3x4x5 maka terdapat 120 item dalam tensor rank4
+```
+
+## Manipulasi Tensor
+
+Kita juga menggunakan *indexing* untuk melihat sebagian dari tensor, misal:
+
+```{python}
+# Get the first 2 elements of each dimension
+rank4[:1, :3, :2, :2]
+```
+
+Dan apabila diperlukan, kita bisa menambahkan dimensi baru dari tensor *existing* dengan menggunakan `tf.newaxis`:
+
+```{python}
+# Crate a r2x2 tensor (2 dimensions)
+rank2 = tf.constant([[10, 3],
+                     [2, 5]])
+                     
+# Add in extra dimension to our rank 2 tensor toi make 2x2x1 tensor
+rank3_exp = rank2[..., tf.newaxis]
+rank3_exp
+```
+
+Apabila diperlukan, kita juga bisa melakukan kebalikannya: Menghilangkan semua *single dimensions* dengan fungsi `tf.squeeze():`
+
+```{python}
+# Create a tensor to get started
+tf.random.set_seed(42)
+G = tf.constant(tf.random.uniform(shape=[50]), shape=(1,1,1,2,25))
+G
+```
+
+```{python}
+G_squeezed = tf.squeeze(G)
+G_squeezed, G_squeezed.shape
+```
+
+## Mengubah *data type* tensor
+
+Sejauh ini, kita hanya bekerja dengan tensor ber-`dtype` `int32`. Mari kita membuat sebuah tensor bertipe `float`:
+
+```{python}
+t1 = tf.constant([[1,2], [3,4]], dtype=float)
+t2 = tf.constant([[5,6], [7,8]], dtype=float)
+t1, t2
+```
+
+Untuk beberapa kasus, kita perlu mengubah tensor yang sudah ada menjadi data type yang lain. Untuk itu, kita bisa menggunakan fungsi `tf.cast()`
+
+```{python}
+import numpy as np
+# Create a random tensor of values between -100 and 100 of size 50
+E = tf.constant(np.random.randint(-100,100,size = 50))
+E
+```
+
+```{python}
+tf.cast(E, dtype=tf.float32)
+```
+
+## Operasi Tensor
+
+Untuk menjumlahkan, mengalikan dengan skalar, dan perkalian matriks, operator Python standar `+`, `*`, `@` tetap bisa digunakan:
+
+```{python}
+print(t1 + t2, '\n')
+print(t1 * 1/3, '\n')
+print(t1 @ t2, '\n')
+```
+
+Meskipun demikian, *best practice* untuk melakukan operasi-operasi tersebut adalah dengan menggunakan fungsi-fungsi *native* Tensorflow, seperti `tf.add`, `tf.multiply`, dan `tf.matmul:`
+
+```{python}
+print(tf.add(t1, t2), "\n")
+print(tf.multiply(t1, 1/3), "\n")
+print(tf.matmul(t1, t2), "\n")
+```
+
+## Agregasi Tensor
+
+Untuk mencari nilai min/max/mean/sum/variance dari suatu tensor, kita bisa menggunakan fungsi-fungsi reduksi berikut:
+
+```{python}
+# Create a random tensor of values between -100 and 100 of size 50
+E = tf.constant(np.random.randint(-100,100,size = 50))
+print(E)
+
+# Find the minimum
+print("Minimum: ", tf.reduce_min(E).numpy())
+
+# Find the maximum
+print("Maximum: ", tf.reduce_max(E).numpy())
+
+# Find the average
+print("Average: ", tf.reduce_mean(E).numpy())
+
+# Find the sum
+print("Total: ", tf.reduce_sum(E).numpy())
+
+# Find the stdev and variance
+# Notice that we convert the tensor into float dtype here
+print("Standard deviation: ", tf.math.reduce_std(tf.cast(E, dtype=tf.float32)).numpy())
+print("Variance: ", tf.math.reduce_variance(tf.cast(E, dtype=tf.float32)).numpy())
+
+# Where the positional minimum and maximum of a tensor (argmin and argmax)
+print("Positional minimum: ", tf.argmin(E).numpy())
+print("Positional maximum: ", tf.argmax(E).numpy())
+```
+
+# 
